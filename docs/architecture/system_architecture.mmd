@@ -1,0 +1,18 @@
+flowchart TD
+    A["Bing News RSS Feed"] --> B["news.py - Data Collection"]
+    B --> C["Article Text Extraction"]
+    C --> D["nlp.py - NLP Processing"]
+
+    D --> E["Text Preprocessing"]
+    E --> F["TF-IDF Vectorization"]
+
+    F --> G["Extractive Summarization"]
+    F --> H["Cosine Similarity"]
+    H --> I["K-Means Clustering"]
+
+    G --> J["app.py - Flask Application"]
+    I --> J
+
+    J --> K["30-Minute Cache"]
+    K --> L["HTML Templates and CSS"]
+    L --> M["User Browser"]

@@ -1,0 +1,23 @@
+flowchart TD
+    A["User selects news topic"] --> B["Flask Application - app.py"]
+
+    B --> C["Bing News RSS Feed"]
+    C --> D["news.py - Fetch Articles"]
+
+    D --> E["Extract Article Content"]
+    E --> F["nlp.py - Text Preprocessing"]
+
+    F --> G["TF-IDF Vectorization"]
+
+    G --> H["Extractive Summarization"]
+    G --> I["Cosine Similarity and K-Means"]
+
+    H --> J["Article Summaries"]
+    I --> K["Clustered Articles"]
+
+    J --> L["Flask Application"]
+    K --> L
+
+    L --> M["30-Minute Cache"]
+    M --> N["HTML Templates and CSS"]
+    N --> O["Results Displayed to User"]
