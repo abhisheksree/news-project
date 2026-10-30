@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t.icon }} {{ t.title }}</h1>
+<p><a href="/">← All topics</a> · <a href="/topic/{{ key }}?refresh=1">🔄 Refresh news</a></p>
+
+{% if not data.articles %}
+  <p class="box">No articles found. Check your internet connection and try Refresh.</p>
+{% else %}
+  <section class="box">
+    <h2>Overall summary</h2>
+    <p>{{ data.overall }}</p>
+  </section>
+
+  <h2>Clusters ({{ data.clusters|length }})</h2>
+  {% for c in data.clusters %}
+  <section class="cluster">
+    <h3>Cluster {{ loop.index }}: <span class="tag">{{ c.label }}</span> ({{ c.articles|length }} articles)</h3>
+    {% for a in c.articles %}
+    <article>
+      <a href="{{ a.url }}" target="_blank" rel="noopener"><strong>{{ a.title }}</strong></a>
+      <div class="muted">{{ a.source }} · {{ a.published }}</div>
+      <p>{{ a.summary }}</p>
+    </article>
+    {% endfor %}
+  </section>
+  {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Pick a topic</h1>
+<p class="muted">Live news, automatically summarized and grouped into clusters.</p>
+<div class="grid">
+  {% for key, t in topics.items() %}
+  <a class="card" href="/topic/{{ key }}">
+    <span class="icon">{{ t.icon }}</span>
+    <h2>{{ t.title }}</h2>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
